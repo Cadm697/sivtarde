@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+
+{% block titulo %}
+    DashBoad Administrador
+{% endblock%}
+
+{% block contenido %}
+<div class="frmcentrado">
+    {% if session.perfil == 1 %}
+        <a href="/registrarse"> Crear Cuenta</a>
+    {% endif %}
+    <a href="/productos"> Productos</a>
+    <a href="/productos/lista">Lista Productos</a>
+    
+</div>
+{% endblock %}

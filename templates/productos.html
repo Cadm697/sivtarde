@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+
+{% block titulo%}
+    Registro de usuario
+{% endblock %}
+
+{% block contenido%}
+Bienvenido, {% if session.usuario %} {{session.usuario}} {% endif %}
+    <div>
+        <a href="/logout">LogOut</a>
+    </div>
+    <div class="frmCentrado">
+        <form id="formulario" action="" method="post" onsubmit="return confirmarBorrado()">
+            {{ frm.hidden_tag() }}
+            <div>
+                {{frm.codigo.label}}
+                {{frm.codigo}}
+                {% for error in frm.codigo.errors %}
+                    <div>
+                        {{error}}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                {{frm.nombre.label}}
+                {{frm.nombre}}
+                {% for error in frm.nombre.errors %}
+                    <div>
+                        {{error}}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                {{frm.precio.label}}
+                {{frm.precio}}
+                {% for error in frm.precio.errors %}
+                    <div>
+                        {{error}}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                {{frm.stock.label}}
+                {{frm.stock}}
+                {% for error in frm.stock.errors %}
+                    <div>
+                        {{error}}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                {{frm.guardar}}
+                {{frm.consultar}}
+                {{frm.editar}}
+                {{frm.eliminar}}
+            </div>
+        </form>
+        {% for msg in get_flashed_messages() %}
+            <div>
+                {{ msg }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

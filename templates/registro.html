@@ -1,0 +1,52 @@
+{% extends "base.html"%}
+
+{% block titulo%}
+    Registro de usuario
+{% endblock %}
+
+{% block contenido%} 
+
+    <form action="" method="post" novalidate>
+        {{ frmRegistro.hidden_tag() }}
+        <div>
+            {{frmRegistro.usuario.label}}
+            {{frmRegistro.usuario}}
+            {% for error in frmRegistro.usuario.errors %}
+                <div>
+                    {{error}}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {{frmRegistro.nombre.label}}
+            {{frmRegistro.nombre}}
+            {% for error in frmRegistro.nombre.errors %}
+                <div>
+                    {{error}}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {{frmRegistro.correo.label}}
+            {{frmRegistro.correo}}
+            {% for error in frmRegistro.correo.errors %}
+                <div>
+                    {{error}}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {{frmRegistro.contraseña.label}}
+            {{frmRegistro.contraseña}}
+            {% for error in frmRegistro.contraseña.errors %}
+                <div>
+                    {{error}}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {{frmRegistro.registrar}}
+        </div>
+    </form>
+
+{% endblock %}

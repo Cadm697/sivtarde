@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+
+{% block titulo%}
+    Lista de usuarios
+{% endblock %}
+
+{% block contenido%} 
+
+    {% for usuario in rows %}
+        <p>
+            {{ usuario["id"]}} {{ usuario["nombre"]}} {{ usuario["correo"]}}
+        </p>
+    {% endfor %}
+{% endblock %}

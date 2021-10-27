@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+
+{% block titulo%}
+    Registro de usuario
+{% endblock %}
+
+{% block contenido%}
+Bienvenido, {% if session.usuario %} {{session.usuario}} {% endif %}
+    <div>
+        <a href="/logout">LogOut</a>
+    </div>
+
+    <div class="frmcentrado">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in rows %}
+                    <tr>
+                        <td>{{r["codigo"]}}</td>
+                        <td>{{r["nombre"]}}</td>
+                        <td>{{r["precio"]}}</td>
+                        <td>{{r["stock"]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    
+{% endblock %}

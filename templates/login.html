@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+
+{% block titulo%}
+Autenticación de usuario
+{% endblock %}
+
+{% block contenido%}
+
+    <div class="frmCentrado">
+        <form action="" method="post" novalidate>
+
+            {{frm.hidden_tag() }}
+
+            <div >
+                {{frm.usuario.label}}
+                {{frm.usuario}}
+                {% for error in frm.usuario.errors %}
+                <div>
+                    {{error}}
+                </div>
+                {% endfor %}
+            </div>
+            <div >
+                {{frm.contraseña.label}}
+                {{frm.contraseña}}
+                {% for error in frm.contraseña.errors %}
+                <div>
+                    {{error}}
+                </div>
+                {% endfor %}
+            </div>
+            <div >
+                {{frm.enviar}}
+            </div>
+        </form>
+        <a href="/registrarse"> Registrarse</a>
+        <a href="{{ url_for('registrar') }}"> Registrarse</a>
+    </div>
+{% endblock %}
